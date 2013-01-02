@@ -57,11 +57,7 @@ namespace MvcSiteMapProvider.Internal
         /// <returns>A reference to the partial view.</returns>
         protected override IView CreatePartialView(ControllerContext controllerContext, string partialPath)
         {
-#if NET35
-            return (WebFormView)Activator.CreateInstance(typeof(WebFormView), partialPath, null);
-#else
             return new WebFormView(controllerContext, partialPath, null);
-#endif
         }
 
         /// <summary>
@@ -73,11 +69,7 @@ namespace MvcSiteMapProvider.Internal
         /// <returns>A reference to the view.</returns>
         protected override IView CreateView(ControllerContext controllerContext, string viewPath, string masterPath)
         {
-#if NET35
-            return (WebFormView)Activator.CreateInstance(typeof(WebFormView), viewPath, masterPath);
-#else
             return new WebFormView(controllerContext, viewPath, masterPath);
-#endif
         }
     }
 }

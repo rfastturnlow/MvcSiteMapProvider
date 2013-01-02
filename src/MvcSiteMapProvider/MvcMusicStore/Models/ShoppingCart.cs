@@ -97,20 +97,20 @@ namespace MvcMusicStore.Models
             return count ?? 0;
         }
 
-        public decimal GetTotal()
+        public double GetTotal()
         {
-            decimal? total =
+            double? total =
                 (from cartItems in storeDB.Carts
                  where cartItems.CartId == shoppingCartId
                  select (int?)cartItems.Count * cartItems.Album.Price)
                 .Sum();
 
-            return total ?? decimal.Zero;
+            return total ?? 0;
         }
 
         public int CreateOrder(Order order)
         {
-            decimal orderTotal = 0;
+            double orderTotal = 0;
 
             var cartItems = GetCartItems();
 

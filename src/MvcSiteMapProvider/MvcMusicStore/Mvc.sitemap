@@ -22,14 +22,6 @@
       <mvcSiteMapNode title="$resources:SiteMapLocalizations,ChangePasswordTitle" action="ChangePassword" visibilityProvider="MvcMusicStore.Code.AuthenticatedVisibilityProvider, Mvc Music Store" />
     </mvcSiteMapNode>
 
-    <mvcSiteMapNode title="$resources:SiteMapLocalizations,AdministrationTitle" area="Admin" controller="Home" visibility="SiteMapPathHelper,!*" visibilityProvider="MvcSiteMapProvider.FilteredSiteMapNodeVisibilityProvider, MvcSiteMapProvider">
-      <mvcSiteMapNode title="$resources:SiteMapLocalizations,StoreManagerTitle" area="Admin" controller="StoreManager" action="Index">
-        <mvcSiteMapNode title="$resources:SiteMapLocalizations,CreateAlbumTitle" action="Create"/>
-        <mvcSiteMapNode title="$resources:SiteMapLocalizations,EditAlbumTitle" action="Edit"/>
-        <mvcSiteMapNode title="$resources:SiteMapLocalizations,DeleteAlbumTitle" action="Delete"/>
-      </mvcSiteMapNode>
-    </mvcSiteMapNode>
-
     <mvcSiteMapNode title="$resources:SiteMapLocalizations,SitemapTitle" action="SiteMap" urlResolver="MvcMusicStore.Code.UpperCaseSiteMapNodeUrlResolver, Mvc Music Store" />
   </mvcSiteMapNode>
 </mvcSiteMap>

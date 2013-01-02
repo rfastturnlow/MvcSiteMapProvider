@@ -22,7 +22,6 @@ namespace MvcSiteMapProvider
     {
         #region IAclModule Members
 
-#if !NET35
         protected string filterProviderCacheKey = "__MVCSITEMAP_F255D59E-D3E4-4BA9-8A5F-2AF0CAB282F4";
         protected IFilterProvider ResolveFilterProvider()
         {
@@ -30,14 +29,12 @@ namespace MvcSiteMapProvider
             {
                 if (!HttpContext.Current.Items.Contains(filterProviderCacheKey))
                 {
-                    HttpContext.Current.Items[filterProviderCacheKey] =
-                        DependencyResolver.Current.GetService<IFilterProvider>();
+                    HttpContext.Current.Items[filterProviderCacheKey] = DependencyResolver.Current.GetService<IFilterProvider>();
                 }
                 return (IFilterProvider)HttpContext.Current.Items[filterProviderCacheKey];
             }
             return DependencyResolver.Current.GetService<IFilterProvider>();
         }
-#endif
 
         /// <summary>
         /// Determines whether node is accessible to user.
@@ -161,14 +158,6 @@ namespace MvcSiteMapProvider
             {
                 if (actionDescriptor != null)
                 {
-#if NET35
-                    IEnumerable<AuthorizeAttribute> authorizeAttributesToCheck =
-                       actionDescriptor.GetCustomAttributes(typeof(AuthorizeAttribute), true).OfType
-                           <AuthorizeAttribute>().ToList()
-                           .Union(
-                               controllerDescriptor.GetCustomAttributes(typeof(AuthorizeAttribute), true).OfType
-                                   <AuthorizeAttribute>().ToList());
-#else
                     IFilterProvider filterProvider = ResolveFilterProvider();
                     IEnumerable<Filter> filters;
 
@@ -183,11 +172,9 @@ namespace MvcSiteMapProvider
                         filters = FilterProviders.Providers.GetFilters(controllerContext, actionDescriptor);
                     }
 
-                    IEnumerable<AuthorizeAttribute> authorizeAttributesToCheck =
-                        filters
+                    IEnumerable<AuthorizeAttribute> authorizeAttributesToCheck = filters
                             .Where(f => typeof(AuthorizeAttribute).IsAssignableFrom(f.Instance.GetType()))
                             .Select(f => f.Instance as AuthorizeAttribute);
-#endif
 
                     // Verify all attributes
                     foreach (var authorizeAttribute in authorizeAttributesToCheck)
