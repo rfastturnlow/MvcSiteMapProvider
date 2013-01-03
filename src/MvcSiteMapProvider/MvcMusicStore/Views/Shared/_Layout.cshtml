@@ -1,34 +1,40 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>@ViewBag.Title (@Html.MvcSiteMap().SiteMapTitle())</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
-</head>
-<body>
-    <div id="header">
-        <h1><a href="/">ASP.NET MVC MUSIC STORE</a></h1>
-        <ul id="navlist">
-            <li class="first"><a href="@Url.Content("~")" id="current">Home</a></li>
-            <li><a href="@Url.Content("~/Store/")">Store</a></li>
-            <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
-            <li><a href="/Home/SiteMap">Sitemap</a></li>
-            <li><a href="/sitemap.xml">XML</a></li>
-        </ul>        
-    </div>
+    <head>
+        <title>@ViewBag.Title (@Html.MvcSiteMap().SiteMapTitle())</title>
 
-    @{Html.RenderAction("GenreMenu", "Store");}
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div id="header">
+            <h1><a href="/">ASP.NET MVC MUSIC STORE</a></h1>
+            <ul id="navlist">
+                <li class="first"><a href="@Url.Content("~")" id="current">Home</a></li>
+                <li><a href="@Url.Content("~/Store/")">Store</a></li>
+                <li>@{Html.RenderAction("CartSummary", "ShoppingCart");}</li>
+                <li><a href="/Home/SiteMap">Sitemap</a></li>
+                <li><a href="/sitemap.xml">XML</a></li>
+            </ul>        
+        </div>
 
-    <div id="main">
-        @Html.MvcSiteMap().SiteMapPath()
+        <div id="genres">
+            @{Html.RenderAction("GenreMenu", "Store");}
+        </div>
 
-        <div style="height: 10px;"></div>
+        <div id="main">
+            @Html.MvcSiteMap().SiteMapPath()
 
-        @RenderBody()
-    </div>
+            <div style="height: 10px;"></div>
 
-    <div id="footer">
-        built with <a href="http://asp.net/mvc">ASP.NET MVC 3</a>
-    </div>
-</body>
+            @RenderBody()
+        </div>
+
+        <div id="footer">
+            built with <a href="http://asp.net/mvc">ASP.NET MVC 3</a>
+        </div>
+        
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
