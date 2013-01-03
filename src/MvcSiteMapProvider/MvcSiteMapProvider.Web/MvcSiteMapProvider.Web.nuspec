@@ -12,5 +12,8 @@
     <tags>mvc sitemap menu breadcrumb navigation</tags>
     <projectUrl>http://github.com/maartenba/MvcSiteMapProvider</projectUrl>
     <iconUrl>http://download.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=mvcsitemap&amp;DownloadId=196029</iconUrl>
+    <dependencies>
+      <dependency id="MvcSiteMapProvider.Core" version="4.0.0.0" />
+    </dependencies>
   </metadata>
 </package>

@@ -1,3 +1,5 @@
-powershell -Command "& {Import-Module .\build\psake.psm1; $psake.use_exit_on_error = $true; Invoke-psake .\build\build.ps1 -framework 4.0x64 -parameters @{solution='MvcSiteMapProvider'}}"
+set nuget=.\src\MvcSiteMapProvider\.nuget\NuGet.exe
 
-Pause
+mkdir packages
+%nuget% pack .\src\MvcSiteMapProvider\MvcSiteMapProvider.Core\MvcSiteMapProvider.Core.csproj -NonInteractive -Build -Symbols -OutputDirectory .\packages
+%nuget% pack .\src\MvcSiteMapProvider\MvcSiteMapProvider.Web\MvcSiteMapProvider.Web.csproj -NonInteractive -Build -Symbols -OutputDirectory .\packages
