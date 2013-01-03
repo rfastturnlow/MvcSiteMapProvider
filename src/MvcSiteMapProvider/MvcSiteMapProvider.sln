@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BFA889
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSiteMapProvider.Core", "MvcSiteMapProvider.Core\MvcSiteMapProvider.Core.csproj", "{7E86FD9B-4CFF-4D3F-B6A8-0811BEB344D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSiteMapProvider.Web", "MvcSiteMapProvider.Web\MvcSiteMapProvider.Web.csproj", "{DC9EC1D1-9752-415F-B899-039F2D17CF25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C83FE52C-47DD-4433-B34E-9C9D72BBFFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E86FD9B-4CFF-4D3F-B6A8-0811BEB344D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E86FD9B-4CFF-4D3F-B6A8-0811BEB344D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E86FD9B-4CFF-4D3F-B6A8-0811BEB344D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E86FD9B-4CFF-4D3F-B6A8-0811BEB344D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9EC1D1-9752-415F-B899-039F2D17CF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9EC1D1-9752-415F-B899-039F2D17CF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9EC1D1-9752-415F-B899-039F2D17CF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9EC1D1-9752-415F-B899-039F2D17CF25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
