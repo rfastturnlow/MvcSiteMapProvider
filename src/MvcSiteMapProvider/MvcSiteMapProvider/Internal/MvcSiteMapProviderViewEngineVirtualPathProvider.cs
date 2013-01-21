@@ -22,7 +22,7 @@ namespace MvcSiteMapProvider.Internal
         /// <returns>true if the path exists in the virtual file system; otherwise, false.</returns>
         private bool PathExists(string path)
         {
-            if (path.Contains("__MVCSITEMAPPROVIDER") && !path.Contains(".."))
+            if (path != null && path.Contains("__MVCSITEMAPPROVIDER") && !path.Contains(".."))
             {
                 string resourceFileName = Path.GetFileName(path);
                 Assembly assembly = typeof(MvcSiteMapProviderViewEngineVirtualFile).Assembly;
@@ -40,6 +40,10 @@ namespace MvcSiteMapProvider.Internal
         /// </returns>
         public override bool FileExists(string virtualPath)
         {
+            if (virtualPath == null)
+            {
+                return false;
+            }
             if (PathExists(virtualPath))
             {
                 return true;

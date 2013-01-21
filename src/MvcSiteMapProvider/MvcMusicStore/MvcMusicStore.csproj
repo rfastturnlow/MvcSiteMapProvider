@@ -207,6 +207,14 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MvcSiteMapProvider.Core\MvcSiteMapProvider.Core.csproj">
+      <Project>{7e86fd9b-4cff-4d3f-b6a8-0811beb344d2}</Project>
+      <Name>MvcSiteMapProvider.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcSiteMapProvider.Web\MvcSiteMapProvider.Web.csproj">
+      <Project>{dc9ec1d1-9752-415f-b899-039f2d17cf25}</Project>
+      <Name>MvcSiteMapProvider.Web</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MvcSiteMapProvider\MvcSiteMapProvider.csproj">
       <Project>{80A397D7-7BDD-4538-8D87-34E90B4FB4B2}</Project>
       <Name>MvcSiteMapProvider</Name>

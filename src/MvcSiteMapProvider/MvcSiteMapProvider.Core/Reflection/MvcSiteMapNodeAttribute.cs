@@ -1,16 +1,15 @@
-﻿#region Using directives
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-using System;
-
-#endregion
-
-namespace MvcSiteMapProvider
+namespace MvcSiteMapProvider.Core.Reflection
 {
     /// <summary>
     /// SiteMap node attribute, used to decorate action methods with SiteMap node metadata
     /// </summary>
     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
-    public class MvcSiteMapNodeAttribute 
+    public class MvcSiteMapNodeAttribute
         : Attribute, IMvcSiteMapNodeAttribute
     {
         /// <summary>
@@ -35,7 +34,7 @@ namespace MvcSiteMapProvider
         /// Gets or sets the name of the area.
         /// </summary>
         /// <value>The name of the area.</value>
-        public string AreaName { get; set; }
+        public string Area { get; set; }
 
         /// <summary>
         /// SiteMap node title
@@ -46,11 +45,6 @@ namespace MvcSiteMapProvider
         /// SiteMap node description
         /// </summary>
         public string Description { get; set; }
-
-        /// <summary>
-        /// SiteMap node URL (optional)
-        /// </summary>
-        public string Url { get; set; }
 
         /// <summary>
         /// SiteMap node parent key
