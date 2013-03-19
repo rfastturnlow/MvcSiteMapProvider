@@ -638,10 +638,14 @@ namespace MvcSiteMapProvider
                 }
                 catch (MvcSiteMapException)
                 {
+                    // Clear the root so we aren't stuck with a partially built site map.
+                    root = null;
                     throw;
                 }
                 catch (Exception ex)
                 {
+                    // Clear the root so we aren't stuck with a partially built site map.
+                    root = null;
                     throw new MvcSiteMapException(Resources.Messages.UnknownException, ex);
                 }
                 finally
